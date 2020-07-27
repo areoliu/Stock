@@ -1,6 +1,6 @@
 package com.example.stock.service;
 
-import com.example.second.dao.StockDao;
+import com.example.stock.dao.StockDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

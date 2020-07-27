@@ -1,8 +1,9 @@
 package com.example.stock.controller;
 
-import com.example.second.entity.*;
-import com.example.second.service.OrderService;
-import com.example.second.service.StockService;
+import com.example.stock.entity.HttpRequest;
+import com.example.stock.entity.HttpResponseBody;
+import com.example.stock.entity.HttpResponseHead;
+import com.example.stock.service.StockService;
 import com.google.gson.Gson;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -27,10 +28,7 @@ public class StockController {
         HttpResponseHead responseHead = new HttpResponseHead();
         Gson gson=new Gson();
         String str=gson.toJson(httpRequest.getRequestBody().getRequestData());
-        Order order=gson.fromJson(str,Order.class);
-        orderService.createOrder(order);
-        System.out.println(order);
-        stockService.updateStock(order.getOrderAmout(),order.getOrderSku());
+        stockService.updateStock(3,"iphone12");
         responseBody.setResultCode("S00001");
         responseBody.setResultMessage("succeed!");
         responseHead.setToken("");
