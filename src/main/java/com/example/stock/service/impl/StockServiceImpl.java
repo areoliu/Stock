@@ -1,10 +1,11 @@
-package com.example.stock.service;
+package com.example.stock.service.impl;
 
+import com.example.api.service.StockService;
 import com.example.stock.dao.StockDao;
+import org.apache.dubbo.config.annotation.Service;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
-@Service
+@Service(version = "1.0.0")
 public class StockServiceImpl implements StockService {
 
     @Autowired
@@ -12,6 +13,7 @@ public class StockServiceImpl implements StockService {
 
     @Override
     public boolean updateStock(int buys,String stockSku) {
+        System.out.println("start update stock");
         return stockDao.updateStock(buys,stockSku);
     }
 }

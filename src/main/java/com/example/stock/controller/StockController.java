@@ -1,9 +1,9 @@
 package com.example.stock.controller;
 
+import com.example.api.service.StockService;
 import com.example.stock.entity.HttpRequest;
 import com.example.stock.entity.HttpResponseBody;
 import com.example.stock.entity.HttpResponseHead;
-import com.example.stock.service.StockService;
 import com.google.gson.Gson;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
