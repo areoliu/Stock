@@ -23,13 +23,18 @@ public class StockServiceImpl implements StockService {
     @Override
     public boolean updateStock(int buys,String stockSku) {
         //System.out.println("start update stock");
-        try {
-            Thread.sleep(150);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            Thread.sleep(150);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
         return stockDao.updateStock(buys,stockSku);
 //        return true;
+    }
+
+    @Override
+    public int queryStock() {
+        return stockDao.queryStock();
     }
 //
 //    /**
