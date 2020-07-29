@@ -20,22 +20,26 @@ public class StockServiceImpl implements StockService {
     @Autowired
     StockDao stockDao;
 
-    //@SentinelResource(value = "HelloWorld",blockHandler="degradeMethod")
     @Override
     public boolean updateStock(int buys,String stockSku) {
-        System.out.println("start update stock");
-       // return stockDao.updateStock(buys,stockSku);
-        return true;
+        //System.out.println("start update stock");
+        try {
+            Thread.sleep(150);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return stockDao.updateStock(buys,stockSku);
+//        return true;
     }
-
-    /**
-     * 降级方法，限流后应用
-     * @return
-     */
-    public boolean degradeMethod(String name, BlockException blockException){
-
-        System.out.println("请求被限流,触发限流规则="+blockException.getRule().getResource());
-        return false;
-    }
+//
+//    /**
+//     * 降级方法，限流后应用
+//     * @return
+//     */
+//    public boolean degradeMethod(String name, BlockException blockException){
+//
+//        System.out.println("请求被限流,触发限流规则="+blockException.getRule().getResource());
+//        return false;
+//    }
 
 }

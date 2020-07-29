@@ -1,5 +1,6 @@
 package com.example.stock.controller;
 
+import com.alibaba.csp.sentinel.annotation.SentinelResource;
 import com.example.api.service.StockService;
 import com.example.stock.entity.HttpRequest;
 import com.example.stock.entity.HttpResponseBody;
@@ -21,6 +22,7 @@ public class StockController {
     @Autowired
     StockService stockService;
 
+    @SentinelResource("updateStock")
     @PostMapping(value = "stock/updateStock")
     public Map<String,Object> updateStock(@RequestBody HttpRequest httpRequest){
         Map<String, Object> responseMap = new HashMap<String, Object>();
