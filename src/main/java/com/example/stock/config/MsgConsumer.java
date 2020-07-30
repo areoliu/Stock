@@ -1,5 +1,7 @@
 package com.example.stock.config;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.example.api.service.StockService;
 import com.example.stock.Constant;
 import com.example.stock.entity.Order;
@@ -29,10 +31,11 @@ public class MsgConsumer implements RocketMQListener<MessageExt>, RocketMQPushCo
         String msg = null;
         try{
             msg = new String(messageExt.getBody(),"utf-8");
-            Gson gson=new Gson();
-            QueueMessage queueMessage= gson.fromJson(msg,QueueMessage.class);
-            log.info("MsgConsumer 消费者 >>> " +gson.toJson(queueMessage.getMsgText()));
-            Order order = gson.fromJson(gson.toJson(queueMessage.getMsgText().replaceAll("\\\\", "")),Order.class);
+//            Gson gson=new Gson();
+            QueueMessage queueMessage= JSONObject.parseObject(msg,QueueMessage.class);
+            String orderData=JSON.parse(JSONObject.toJSONString(queueMessage.getMsgText())).toString();
+            log.info("MsgConsumer 消费者 >>> " +orderData);
+            Order order = JSONObject.parseObject(orderData,Order.class);
             stockService.updateStock(order.getOrderAmout(),order.getOrderSku());
         }catch (Exception e){
             e.printStackTrace();
