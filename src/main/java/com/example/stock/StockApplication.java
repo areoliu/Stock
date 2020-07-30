@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 @EnableDubbo
-@MapperScan(basePackages= {"com.example.stock.dao","com.example.stock.controller"})
+@MapperScan(basePackages= {"com.example.stock.dao","com.example.stock.controller","com.example.stock.config"})
 public class StockApplication {
 
 	public static void main(String[] args) {
