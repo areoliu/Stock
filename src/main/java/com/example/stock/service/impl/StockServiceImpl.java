@@ -14,7 +14,7 @@ import javax.annotation.PostConstruct;
 import java.util.ArrayList;
 import java.util.List;
 
-@Service(version = "1.0.0")
+@Service(version="2.0.0")
 public class StockServiceImpl implements StockService {
 
     @Autowired
