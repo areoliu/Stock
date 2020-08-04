@@ -41,8 +41,9 @@ public class StockController {
         return responseMap;
     }
 
-    @GetMapping(value = "stock/test")
+    @GetMapping("/stock/test")
     public String test(){
+        System.out.print("test service work now");
         return "stock test now";
     }
 
