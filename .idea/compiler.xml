@@ -9,6 +9,7 @@
         <module name="api" />
         <module name="stock" />
         <module name="gateway" />
+        <module name="User" />
         <module name="second" />
       </profile>
     </annotationProcessing>
@@ -17,10 +18,12 @@
       <module name="gateway" target="1.8" />
       <module name="second" target="1.8" />
       <module name="stock" target="1.8" />
+      <module name="User" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="User" options="-parameters" />
       <module name="api" options="-parameters" />
       <module name="gateway" options="-parameters" />
       <module name="second" options="-parameters" />
