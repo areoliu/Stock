@@ -70,8 +70,8 @@ spring.redis.timeout: 100
 #
 #
 ##nameServer
-rocketmq.name-server: 127.0.0.1:9876
-rocketmq.producer.group=: tock_producer_group
+#rocketmq.name-server: 127.0.0.1:9876
+#rocketmq.producer.group=: tock_producer_group
 #dubbo:
 #  provider:
 #    group: dubbo-provider
